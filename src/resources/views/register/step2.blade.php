@@ -18,9 +18,40 @@
 
 <body>
     <main>
-    
 
+      <h1 class="register-title">PiGLy</h1>
+      <h2 class="register-subtitle">新規会員登録</h2>
 
+      <p class="register-step">STEP2 体重データの入力</p>
+
+      <div class="register-form">
+
+        <form action="{{ route('register.step2') }}" method="POST" class="register-form__content">
+        @csrf
+
+          {{--現在の体重--}}
+          <div class="content">
+            <p class="content-name">現在の体重</p>
+            <input type="" name="" class="content-item" placeholder="現在の体重を入力" value="{{old('')}}">kg
+          </div>
+          @error('')
+            <div class="error-message">{{ $message }}</div>
+          @enderror
+
+          {{--目標の体重--}}
+          <div class="content">
+            <p class="content-name">目標の体重</p>
+            <input type="" name="" class="content-item" placeholder="目標の体重を入力" value="{{old('')}}">kg
+          </div>
+          @error('')
+            <div class="error-message">{{ $message }}</div>
+          @enderror
+
+          <div class="register__button">
+            <button 	class="register__button-submit" type="submit">アカウント作成</button>
+          </div>
+        </form>
+      </div>
     
     </main>
 </body>

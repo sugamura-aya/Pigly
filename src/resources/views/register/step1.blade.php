@@ -17,10 +17,51 @@
 </head>
 
 <body>
-    <main>
+  <main>
     
+    <h1 class="register-title">PiGLy</h1>
+    <h2 class="register-subtitle">新規会員登録</h2>
 
+    <p class="register-step">STEP1 アカウント情報の登録</p>
 
-    
-    </main>
+    <div class="register-form">
+
+      <form action="{{ route('register.step1') }}" method="POST" class="register-form__content">
+      @csrf
+
+        {{--お名前--}}
+        <div class="content">
+          <p class="content-name">お名前</p>
+          <input type="name" name="name" class="content-item" placeholder="例:山田花子" value="{{old('name')}}">
+        </div>
+        @error('name')
+          <div class="error-message">{{ $message }}</div>
+        @enderror
+
+        {{--メールアドレス--}}
+        <div class="content">
+          <p class="content-name">メールアドレス</p>
+          <input type="email" name="email" class="content-item" placeholder="例:test@example.com" value="{{old('email')}}">
+        </div>
+        @error('email')
+          <div class="error-message">{{ $message }}</div>
+        @enderror
+
+        {{--パスワード--}}
+        <div class="content">
+          <p class="content-name">パスワード</p>
+          <input type="password" name="password" class="content-item" placeholder="例:hvydgjojfg790k">
+        </div>
+        @error('password')
+          <div class="error-message">{{ $message }}</div>
+        @enderror
+
+        <div class="register__button">
+          <button 	class="register__button-submit" type="submit">次に進む</button>
+          <a href="/login" class="login__button">ログインはこちら</a>
+        </div>
+      </form>
+    </div>
+
+  </main>
 </body>
