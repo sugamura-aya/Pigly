@@ -10,24 +10,27 @@
   <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
   {{--register.cssファイル呼び出し--}}
   <link rel="stylesheet" href="{{ asset('css/register.css') }}"/>
-  {{--webフォント
+  {{--webフォント--}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libertinus+Math&display=swap" rel="stylesheet">--}}
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <main>
     
-    <h1 class="register-title">PiGLy</h1>
-    <h2 class="register-subtitle">新規会員登録</h2>
-
-    <p class="register-step">STEP1 アカウント情報の登録</p>
+  <div class="register-page">
 
     <div class="register-form">
 
       <form action="{{ route('register.step1') }}" method="POST" class="register-form__content">
       @csrf
+
+        <div class="tit">
+          <h1 class="register-title">PiGLy</h1>
+          <h2 class="register-subtitle">新規会員登録</h2>
+          <p class="register-step">STEP1 アカウント情報の登録</p>
+        </div>
 
         {{--お名前--}}
         <div class="content">
@@ -62,6 +65,6 @@
         </div>
       </form>
     </div>
-
+  </div>
   </main>
 </body>

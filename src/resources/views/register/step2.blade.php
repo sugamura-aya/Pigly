@@ -10,29 +10,35 @@
   <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
   {{--register.cssファイル呼び出し--}}
   <link rel="stylesheet" href="{{ asset('css/register.css') }}"/>
-  {{--webフォント
+  {{--webフォント--}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libertinus+Math&display=swap" rel="stylesheet">--}}
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <main>
 
-      <h1 class="register-title">PiGLy</h1>
-      <h2 class="register-subtitle">新規会員登録</h2>
-
-      <p class="register-step">STEP2 体重データの入力</p>
+    <div class="register-page">
 
       <div class="register-form">
 
         <form action="{{ route('register.step2') }}" method="POST" class="register-form__content">
         @csrf
 
+          <div class="tit">
+            <h1 class="register-title">PiGLy</h1>
+            <h2 class="register-subtitle">新規会員登録</h2>
+            <p class="register-step">STEP2 体重データの入力</p>
+          </div>
+
           {{--現在の体重--}}
           <div class="content">
             <p class="content-name">現在の体重</p>
-            <input type="" name="" class="content-item" placeholder="現在の体重を入力" value="{{old('')}}">kg
+            <div class="weight-input-wrapper">
+              <input type="text" name="current_weight" class="content-item" placeholder="現在の体重を入力" value="{{old('current_weight')}}">
+              <span class="unit">kg</span>
+            </div>
           </div>
           @error('')
             <div class="error-message">{{ $message }}</div>
@@ -41,7 +47,10 @@
           {{--目標の体重--}}
           <div class="content">
             <p class="content-name">目標の体重</p>
-            <input type="" name="" class="content-item" placeholder="目標の体重を入力" value="{{old('')}}">kg
+            <div class="weight-input-wrapper">
+              <input type="" name="" class="content-item" placeholder="目標の体重を入力" value="{{old('')}}">
+              <span class="unit">kg</span>
+            </div>
           </div>
           @error('')
             <div class="error-message">{{ $message }}</div>
@@ -52,6 +61,6 @@
           </div>
         </form>
       </div>
-    
+    </div>
     </main>
 </body>

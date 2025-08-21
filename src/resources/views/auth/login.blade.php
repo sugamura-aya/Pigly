@@ -10,22 +10,25 @@
   <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
   {{--auth.cssファイル呼び出し--}}
   <link rel="stylesheet" href="{{ asset('css/auth.css') }}"/>
-  {{--webフォント
+  {{--webフォント--}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libertinus+Math&display=swap" rel="stylesheet">--}}
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <main>
-    
-      <h1 class="register-title">PiGLy</h1>
-      <h2 class="register-subtitle">ログイン</h2>
+  <main>
+    <div class="register-page">
 
       <div class="register-form">
 
         <form action="/login" method="POST" class="register-form__content">
         @csrf
+
+          <div class="tit">
+            <h1 class="register-title">PiGLy</h1>
+            <h2 class="register-subtitle">ログイン</h2>
+          </div>
 
           {{--メールアドレス--}}
           <div class="content">
@@ -47,11 +50,11 @@
 
           <div class="register__button">
             <button 	class="register__button-submit" type="submit">ログイン</button>
-            <a href="{{ route('/register/step1') }}" class="login__button">アカウント作成はこちら</a>
+            <a href="{{ route('register.step1') }}" class="login__button">アカウント作成はこちら</a>
           </div>
         </form>
       </div>
 
-    
-    </main>
+    </div>
+  </main>
 </body>

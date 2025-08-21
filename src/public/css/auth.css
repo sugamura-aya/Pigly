@@ -1,0 +1,121 @@
+/*登録・ログインページ共通*/
+body {
+    color: #BCB09C;
+}
+
+.register-page {
+    margin-top: 0;
+    padding-top: 20px;
+    font-size: 20px;
+    background-image: linear-gradient(90deg, rgba(243, 170, 243, 0.6), rgba(246, 190, 232, 0.65) 21%, rgba(255, 247, 216, 0.35) 49%, rgba(255, 183, 227, 1));
+}
+
+.tit {
+    text-align: center;
+    font-family: "Playfair Display", serif;
+}
+
+.register-title {
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    font-size: 60px;
+    margin: 10px auto;
+    color: #fbacff;
+}
+
+.register-subtitle {
+    color: #333;
+    font-family: "Playfair Display", serif;
+    margin-top: 10px;
+}
+
+.register-form {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+    padding-bottom: 300px;
+    width: 100%;
+}
+
+.register-form__content {
+    width: 600px;
+    margin: 70px auto;
+    padding: 40px 100px 100px 100px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.content {
+    width: 300px;
+    margin-bottom: 50px;
+    display: inline;
+    justify-items: center;
+    padding: 10px 50px;
+}
+
+.content-name {
+    margin-bottom: 0;
+    color: black;
+}
+
+.content-item {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #F5F5F5;
+}
+
+.content-item::placeholder {
+    color: #B9B9B9;
+}
+
+.register__button {
+    display: flex;
+    flex-direction: column;
+    /* ← 横並び→縦並びに変更 */
+    align-items: center;
+    /* ← 子要素を中央揃え */
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.register__button-submit {
+    padding: 10px 30px;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 50%;
+    background-image: linear-gradient(90deg,
+            rgba(243, 170, 243, 0.6),
+            rgba(246, 190, 232, 0.65) 21%,
+            rgba(255, 247, 216, 0.35) 49%,
+            rgba(255, 183, 227, 1));
+}
+
+.register__button-submit:hover {
+    background-image: linear-gradient(90deg,
+            rgba(255, 183, 227, 1),
+            rgba(255, 247, 216, 0.35),
+            rgba(246, 190, 232, 0.65),
+            rgba(243, 170, 243, 0.6));
+}
+
+.login__button {
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+
+.error-message {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
