@@ -40,21 +40,25 @@
               <span class="unit">kg</span>
             </div>
           </div>
-          @error('')
-            <div class="error-message">{{ $message }}</div>
-          @enderror
+          @if($errors->has('current_weight'))
+            @foreach($errors->get('current_weight') as $message)
+              <div class="error-message">{{ $message }}</div>
+            @endforeach
+          @endif
 
           {{--目標の体重--}}
           <div class="content">
             <p class="content-name">目標の体重</p>
             <div class="weight-input-wrapper">
-              <input type="" name="" class="content-item" placeholder="目標の体重を入力" value="{{old('')}}">
+              <input type="text" name="target_weight" class="content-item" placeholder="目標の体重を入力" value="{{ old('target_weight') }}">
               <span class="unit">kg</span>
             </div>
           </div>
-          @error('')
-            <div class="error-message">{{ $message }}</div>
-          @enderror
+          @if($errors->has('target_weight'))
+            @foreach($errors->get('target_weight') as $message)
+              <div class="error-message">{{ $message }}</div>
+            @endforeach
+          @endif
 
           <div class="register__button">
             <button 	class="register__button-submit" type="submit">アカウント作成</button>
