@@ -112,11 +112,8 @@
     cursor: pointer;
     transition: background 0.3s ease;
     width: 50%;
-    background-image: linear-gradient(90deg,
-            rgba(243, 170, 243, 0.6),
-            rgba(246, 190, 232, 0.65) 21%,
-            rgba(255, 247, 216, 0.35) 49%,
-            rgba(255, 183, 227, 1));
+    background: linear-gradient(135deg, #f59be6, #d8b4ff);
+        color: #fff;
 }
 
 .register__button-submit:hover {
@@ -130,6 +127,7 @@
 .login__button{
     margin-top: 20px;
     font-size: 15px;
+    color: dodgerblue;
 }
 
 .error-message {

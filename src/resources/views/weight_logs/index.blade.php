@@ -6,9 +6,9 @@
     {{-- 目標体重まで --}}
     <table class="weight-logs__goal">
         <tr>
-            <th>目標体重</th>
-            <th>目標まで</th>
-            <th>最新体重</th>
+            <th class="logs__goal-label">目標体重</th>
+            <th class="logs__goal-label">目標まで</th>
+            <th class="logs__goal-label">最新体重</th>
         </tr>
         <tr>
             <td>{{ number_format($goalWeight, 1) }} <span>kg</span></td>
@@ -36,7 +36,7 @@
         </div>
 
         {{-- 検索結果ヘッダー --}}
-        @if(isset($searchCount))
+        @if((request()->has('from') && request('from') !== null) || (request()->has('to') && request('to') !== null))
             <p>{{ request('from') }}〜{{ request('to') }} の検索結果 {{ $searchCount }}件</p>
         @endif
 
@@ -92,7 +92,7 @@
             <div>
                 <label>体重<span class="required">必須</span></label>
                 <div class="input-with-unit">
-                    <input type="text" name="weight" value="{{ old('weight') }}">
+                    <input type="text" name="weight" value="{{ old('weight') }}" placeholder="50.0">
                     <span>kg</span>
                 </div>
                 @error('weight') <p class="error">{{ $message }}</p> @enderror
@@ -102,7 +102,7 @@
             <div>
                 <label>摂取カロリー<span class="required">必須</span></label>
                 <div class="input-with-unit">
-                    <input type="text" name="calories" value="{{ old('calories') }}">
+                    <input type="text" name="calories" value="{{ old('calories') }}" placeholder="1200">
                     <span>cal</span>
                 </div>
                 @error('calories') <p class="error">{{ $message }}</p> @enderror
@@ -118,7 +118,7 @@
             {{-- 運動内容 --}}
             <div>
                 <label>運動内容</label>
-                <textarea name="exercise_content">{{ old('exercise_content') }}</textarea>
+                <textarea name="exercise_content" placeholder="運動内容を追加">{{ old('exercise_content') }}</textarea>
                 @error('exercise_content') <p class="error">{{ $message }}</p> @enderror
             </div>
 

@@ -28,8 +28,11 @@
 }
 
 .weight-logs__goal th {
-    font-weight: bold;
     padding: 15px 0;
+}
+
+.logs__goal-label{
+    font-weight: normal;
 }
 
 .weight-logs__goal td {
@@ -38,9 +41,11 @@
     font-weight: bold;
 }
 
+
 .weight-logs__goal span {
     padding: 20px 0;
     font-size: 15px;
+    font-weight: normal;
 }
 
 /* =========================
@@ -79,6 +84,16 @@
     border: 1px solid #ccc;
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+    /* 背景を透明にして自作の矢印を表示 */
+    color: transparent;
+    /* デフォルトの色を消す */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><polygon points="0,0 12,0 6,6" fill="black"/></svg>') no-repeat center;
+    background-size: 12px 12px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
 /* 検索ボタンと追加ボタン */
 .search-form button,
 button.open-modal {
@@ -99,7 +114,8 @@ button.open-modal {
 /* 追加ボタンがフォームの幅に引っ張られないように */
 button.open-modal {
     flex-shrink: 0;
-    background-image: linear-gradient(90deg, rgba(243, 170, 243, 0.6), rgba(246, 190, 232, 0.65) 21%, rgba(255, 247, 216, 0.35) 49%, rgba(255, 183, 227, 1));
+    background: linear-gradient(135deg, #f59be6, #d8b4ff);
+        color: #fff;
 }
 
 /* 検索結果件数表示 */
@@ -118,7 +134,6 @@ button.open-modal {
 
 .weight-logs tr:hover {
     background-color: #f0f0f0;
-    /* 薄灰色 */
 }
 
 /* 鉛筆アイコンの列は hover で背景色変えない */
@@ -135,7 +150,6 @@ button.open-modal {
     background-color: #f8f8ff;
     font-weight: bold;
     border-bottom: 2px solid #f5c0ff;
-    /* ピンク寄り紫 */
 }
 
 .weight-logs td {
@@ -225,7 +239,6 @@ button.open-modal {
     border-radius: 3px;
 }
 
-
 .modal__content h2 {
     margin-top: 0;
     margin-bottom: 20px;
@@ -237,7 +250,7 @@ button.open-modal {
 }
 
 .modal__content label {
-    font-weight: bold;
+    
     margin-bottom: 5px;
 }
 
@@ -246,6 +259,10 @@ button.open-modal {
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
+}
+
+.modal__content textarea{
+    height: 160px;
 }
 
 .modal__content span {
@@ -273,7 +290,7 @@ button.open-modal {
     border: none;
     font-weight: bold;
     cursor: pointer;
-    background: linear-gradient(135deg, #b19cd9, #d8b4ff);
+    background: linear-gradient(135deg, #f59be6, #d8b4ff);
     color: #fff;
 }
 
@@ -281,6 +298,14 @@ button.open-modal {
     background: #C0C0C0;
     color: #333;
 }
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+
 
 /* =========================
    バリデーションエラー
@@ -360,7 +385,6 @@ button.open-modal {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #F5F5F5;
     box-sizing: border-box;
 }
 
@@ -401,7 +425,6 @@ button.open-modal {
     flex:0 0 180px; /* 幅固定：縮まない・広がらない */
     padding: 10px 0;
     font-size: 1rem;
-    color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -417,17 +440,17 @@ button.open-modal {
     justify-content: center;
     /* 横中央 */
     text-decoration: none;
-    /* 下線を消す */
-    color: white;
-    
+    /* 下線を消す */    
+}
+
+.weight-log-show__submit .goal__back-button {
+    color: black;
 }
 
 .weight-log-show__submit-button {
-    background-image: linear-gradient(90deg,
-            rgba(243, 170, 243, 0.6),
-            rgba(246, 190, 232, 0.65) 21%,
-            rgba(255, 247, 216, 0.35) 49%,
-            rgba(255, 183, 227, 1));
+    background: linear-gradient(135deg, #f59be6, #d8b4ff);
+        color: #fff;
+    color:white;
 }
 
 .weight-log-show__delete-form {
@@ -442,6 +465,11 @@ button.open-modal {
     font-size: 1.2rem;
     cursor: pointer;
     color: red;
+}
+
+.weight-log-show__delete-button img {
+    width: 22px;
+    height: 22px;
 }
 
 .weight-log-show__error {
@@ -553,7 +581,8 @@ button.open-modal {
     cursor: pointer;
     transition: background 0.3s ease;
     width: 50%;
-    background-image: linear-gradient(90deg, rgba(243, 170, 243, 0.6), rgba(246, 190, 232, 0.65) 21%, rgba(255, 247, 216, 0.35) 49%, rgba(255, 183, 227, 1));
+    background: linear-gradient(135deg, #f59be6, #d8b4ff);
+        color: #fff;
 }
 
 
