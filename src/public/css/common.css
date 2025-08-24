@@ -1,36 +1,70 @@
-/* ヘッダー */
 .header {
-    color: #BCB09C;
-    padding: 20px 0;
-    text-align: center;
-    font-size: 70px;
+    display: flex;
+    /* 左右に分ける */
+    justify-content: space-between;
+    /* 左右端に配置 */
+    align-items: center;
+    /* 縦方向中央揃え */
+    padding: 0 30px;
+    height: 80px;
+    /* ヘッダー高さ固定 */
+    color: #fbacff;
+    font-size: 35px;
     font-weight: bold;
-    border-bottom: 5px solid #DCDCDC;
     font-family: "Libertinus Math", system-ui;
-    position: relative;
 }
 
-main {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    min-height: 400px;
+.header__inner {
+    line-height: 1;
+    /* 文字の上下余白リセット */
 }
 
-
-/*header内ボタン*/
 .header__nav {
     display: flex;
-    justify-content: right;
-    margin-right: 20px;
-    font-size: 25px;
-    position: absolute;
-    bottom: 50px;
-    right: 20px
+    /* 横並び */
+    gap: 10px;
+    align-items: center;
+    /* ボタン縦中央揃え */
 }
 
+/* aタグ・button共通 */
 .nav__item {
-    border: 2px solid #BCB09C;
-    color: #BCB09C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: normal;
+    border: 2px solid #C0C0C0;
     background-color: #EAEAEA;
-    padding: 0 30px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 6px;
 }
+
+/* フォームリセット */
+.logout-form {
+    margin: 0;
+}
+
+/* logout buttonリセット */
+.logout-form button {
+    all: unset;
+    /* デフォルトスタイルリセット */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: normal;
+    border: 2px solid #C0C0C0;
+    background-color: #EAEAEA;
+    color: black;
+    cursor: pointer;
+    border-radius: 6px;
+}
+

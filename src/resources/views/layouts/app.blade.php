@@ -20,22 +20,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Libertinus+Math&display=swap" rel="stylesheet">--}}
 </head>
 
-<body>
-    <header class="header">
-        <div class="header__inner">PiGLy</div>
-    
-      <nav class="header__nav">
-        <a class="nav__item" href="{{ route('weight_logs.goal.form') }}">目標体重設定</a>
-        <form action="{{ route('logout') }}" method="POST" class="logout-form">
-          @csrf
-          <button class="nav__item" type="submit">ログアウト</button>
-        </form>
-      </nav>
-    </header>
+  <header class="header">
+    <div class="header__inner">PiGLy</div>
 
-    <main>
+    <nav class="header__nav">
+      <a class="nav__item" href="{{ route('weight_logs.goal.form') }}">
+        <img src="{{ asset('images/gear.icon.png') }}" alt="目標アイコン" class="nav__icon">
+      目標体重設定</a>
+
+      <form action="{{ route('logout') }}" method="POST" class="logout-form">
+        @csrf
+        <button type="submit" class="nav__item">
+          <img src="{{ asset('images/logout.icon.png') }}" alt="ログアウトアイコン" class="nav__icon">
+        ログアウト
+        </button>
+      </form>
+    </nav>
+  </header>
+
+  <main>
     @yield('content')
-    </main>
 
-
+  </main>
+@yield('scripts')
 </body>

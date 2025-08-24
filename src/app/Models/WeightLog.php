@@ -27,4 +27,17 @@ class WeightLog extends Model
         return $this->belongsTo(User::class);
     }
 
+    /*日付検索のローカルスコープ*/
+    public function scopeDateRange($query, $from = null, $to = null)
+    {
+        if ($from) {
+            $query->where('date', '>=', $from);
+        }
+        if ($to) {
+            $query->where('date', '<=', $to);
+        }
+        return $query;
+    }
+
+
 }

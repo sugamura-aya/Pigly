@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WeightController;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +51,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/weight_logs/create', [WeightController::class, 'store'])
         ->name('weight_logs.store');
 
+
+    //➅目標体重変更画面（表示）
+    Route::get('/weight_logs/goal_setting', [WeightController::class, 'goalForm'])
+        ->name('weight_logs.goal.form');
+
+    //➅目標体重変更画面（変更処理）
+    Route::patch('/weight_logs/goal_setting', [WeightController::class, 'goalUpdate'])
+        ->name('weight_logs.goal.update');
+
     //➄情報更新画面（表示）
     Route::get('/weight_logs/{weightLogId}', [WeightController::class, 'show'])
         ->name('weight_logs.show');
@@ -61,13 +72,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/weight_logs/{weightLogId}/delete', [WeightController::class, 'destroy'])
         ->name('weight_logs.destroy');
 
-    //➅目標体重変更画面（表示）
-    Route::get('/weight_logs/goal_setting', [WeightController::class, 'goalForm'])
-        ->name('weight_logs.goal.form');
-
-    //➅目標体重変更画面（変更処理）
-    Route::patch('/weight_logs/goal_setting', [WeightController::class, 'updateGoal'])
-        ->name('weight_logs.goal.update');
 });
 
 /*ログアウト後ログインページへ*/

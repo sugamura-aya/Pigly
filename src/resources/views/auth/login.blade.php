@@ -33,7 +33,7 @@
           {{--メールアドレス--}}
           <div class="content">
             <p class="content-name">メールアドレス</p>
-            <input type="email" name="email" class="content-item" placeholder="メールアドレスを入力" value="{{old('email')}}">
+            <input type="text" name="email" class="content-item" placeholder="メールアドレスを入力" value="{{old('email')}}">
           </div>
           @error('email')
             <div class="error-message">{{ $message }}</div>

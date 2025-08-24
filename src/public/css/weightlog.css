@@ -1,0 +1,560 @@
+/*➃管理画面*/
+/* =========================
+   ページ全体
+========================= */
+.weight-logs__page {
+    background-color: #f5f5f5;
+    /* 薄グレー背景 */
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Noto Sans JP", sans-serif;
+    color: #333;
+}
+
+/* =========================
+   目標体重テーブル
+========================= */
+.weight-logs__goal {
+    width: 800px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weight-logs__goal th {
+    font-weight: bold;
+    padding: 15px 0;
+}
+
+.weight-logs__goal td {
+    padding: 20px 0;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.weight-logs__goal span {
+    padding: 20px 0;
+    font-size: 15px;
+}
+
+/* =========================
+   検索フォームと追加ボタン
+========================= */
+.weight__logs {
+    width: 800px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 検索フォームと追加ボタンを横並びにす*/
+.weight__logs-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+        /* 左右に配置 */
+}
+
+/* 検索フォーム内も横並び */
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 日付入力 */
+.search-form input[type="date"] {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* 検索ボタンと追加ボタン */
+.search-form button,
+button.open-modal {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    /*background: linear-gradient(135deg, #b19cd9, #d8b4ff);
+        /* ピンク寄りの紫グラデ */
+}
+
+.search__button-submit{
+    background-color: #717375;
+}
+
+/* 追加ボタンがフォームの幅に引っ張られないように */
+button.open-modal {
+    flex-shrink: 0;
+    background-image: linear-gradient(90deg, rgba(243, 170, 243, 0.6), rgba(246, 190, 232, 0.65) 21%, rgba(255, 247, 216, 0.35) 49%, rgba(255, 183, 227, 1));
+}
+
+/* 検索結果件数表示 */
+.search-form+p {
+    margin: 10px 0 0 0;
+}
+
+/* =========================
+   一覧テーブル
+========================= */
+.weight-logs {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.weight-logs tr:hover {
+    background-color: #f0f0f0;
+    /* 薄灰色 */
+}
+
+/* 鉛筆アイコンの列は hover で背景色変えない */
+.weight-logs td.row-detail:hover {
+    background-color: transparent;
+}
+
+.weight-logs th,
+.weight-logs td {
+    padding: 12px 10px;
+}
+
+.weight-logs th {
+    background-color: #f8f8ff;
+    font-weight: bold;
+    border-bottom: 2px solid #f5c0ff;
+    /* ピンク寄り紫 */
+}
+
+.weight-logs td {
+    border-bottom: 1px solid #f5c0ff;
+}
+
+/* 鉛筆アイコン */
+.edit-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* =========================
+   ページネーション
+========================= */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination .page-item {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.pagination .page-item a,
+.pagination .page-item span {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+/* 現在表示中のページ番号に紫色を付ける */
+.pagination .page-item.active span {
+    color: #fff;
+    border-color: #b19cd9;
+    background-image: linear-gradient(90deg, rgba(243, 170, 243, 0.6), rgba(246, 190, 232, 0.65) 21%, rgba(255, 247, 216, 0.35) 49%, rgba(255, 183, 227, 1));
+}
+
+/* =========================
+   モーダル
+========================= */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal__content {
+    position: fixed;
+    /* 画面固定 */
+    top: 50%;
+    /* 縦中央 */
+    left: 50%;
+    /* 横中央 */
+    transform: translate(-50%, -50%);
+    /* 自分の幅・高さの半分だけ移動して真ん中に */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 700px;
+    max-width: 90%;
+    /* 画面が狭い時に横幅を収める */
+    max-height: 90%;
+    /* 高さも画面に収める */
+    overflow-y: auto;
+    /* 内容が長い場合スクロール可能に */
+}
+
+/* 必須マーク */
+.required {
+    background: red;
+    color: white;
+    padding: 2px 5px;
+    font-size: 12px;
+    margin-left: 8px;
+    border-radius: 3px;
+}
+
+
+.modal__content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.modal__content form div {
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.modal__content label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.modal__content input,
+.modal__content textarea {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.modal__content span {
+    margin-left: 5px;
+}
+
+.modal__content form div:not(.modal__actions) {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.modal__actions button {
+    min-width: 120px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(135deg, #b19cd9, #d8b4ff);
+    color: #fff;
+}
+
+.modal__actions .close-modal {
+    background: #C0C0C0;
+    color: #333;
+}
+
+/* =========================
+   バリデーションエラー
+========================= */
+.error {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+
+
+/*➄情報更新画面*/
+.weight-log-show {
+    background-color: #f8f7f6;
+    min-height: 100vh;
+    /* 画面全体 */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* 上寄せ */
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.weight-log-show__form-wrapper {
+    width: 600px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px 30px 30px 30px;
+    box-sizing: border-box;
+    position: relative;
+    margin-top: 20px;
+}
+
+.weight-log-show__title {
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.weight-log-show__form {
+    width: 100%;
+}
+
+/* テーブルはラベルを上に */
+.weight-log-show__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.weight-log-show__row {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    /* ラベル上配置 */
+}
+
+.weight-log-show__label {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.weight-log-show__input-cell {
+    display: flex;
+    flex-direction: column;
+        /* 縦方向に積む */
+    gap: 5px;
+}
+
+.weight-log-show__input,
+.weight-log-show__textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #F5F5F5;
+    box-sizing: border-box;
+}
+
+.weight-log-show__textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.weight-log-show__input-with-unit {
+    display: flex;
+    align-items: center;
+    /* input と単位を高さ中央に揃える */
+    gap: 5px;
+    /* input と単位の間の隙間 */
+}
+
+.unit {
+    white-space: nowrap;
+    font-size: 1rem;
+    color: #333;
+}
+
+.weight-log-show__submit {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    max-width: 400px;
+    /* 親の最大幅を固定 */
+    margin-left: auto;
+    /* 中央寄せ */
+    margin-right: auto;
+    /* 中央寄せ */
+}
+
+.weight-log-show__submit-button,
+.goal__back-button {
+    flex:0 0 180px; /* 幅固定：縮まない・広がらない */
+    padding: 10px 0;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 30%;
+}
+
+.goal__back-button{
+    background-color: #C0C0C0;
+    display: inline-flex;
+    /* 中央寄せを簡単にする */
+    align-items: center;
+    /* 縦中央 */
+    justify-content: center;
+    /* 横中央 */
+    text-decoration: none;
+    /* 下線を消す */
+    color: white;
+    
+}
+
+.weight-log-show__submit-button {
+    background-image: linear-gradient(90deg,
+            rgba(243, 170, 243, 0.6),
+            rgba(246, 190, 232, 0.65) 21%,
+            rgba(255, 247, 216, 0.35) 49%,
+            rgba(255, 183, 227, 1));
+}
+
+.weight-log-show__delete-form {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.weight-log-show__delete-button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: red;
+}
+
+.weight-log-show__error {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+
+
+/*➅目標体重変更画面*/
+.goal {
+    background-color:#f8f7f6;
+        min-height: calc(100vh - 80px);
+        /* ヘッダー高さを除いた高さ */
+        display: flex;
+        justify-content: center;
+        /* 横中央 */
+        align-items: center;
+        /* 縦中央 */
+        padding: 20px;
+        /* 画面端との余白 */
+        box-sizing: border-box;
+}
+
+.goal__form-content {
+    width: 600px;
+    padding: 40px 100px 100px 100px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.goal__title {
+    text-align: center;
+}
+
+.goal__title-text {
+    color: #333;
+    margin-top: 10px;
+}
+
+.goal__content {
+    width: 300px;
+    margin-bottom: 50px;
+    display: inline;
+    justify-items: center;
+    padding: 10px 50px;
+}
+
+.weight-input-wrapper {
+    display: flex;
+    /* 横並び */
+    align-items: center;
+    /* 縦中央揃え */
+    gap: 5px;
+    /* inputとkgの隙間 */
+    width: 100%;
+    /* 親幅いっぱい */
+}
+
+.unit {
+    white-space: nowrap;
+    /* 改行防止 */
+    font-size: 1rem;
+    color: #333;
+}
+
+.goal__input {
+    flex: 1;
+    /* 入力欄を残り幅いっぱいに */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #F5F5F5;
+    box-sizing: border-box;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+.goal__buttons {
+    display: flex;
+    align-items: center;
+    /* ← 子要素を中央揃え */
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.goal__back-button {
+    padding: 10px 30px;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 50%;
+}
+
+.goal__submit-button {
+    padding: 10px 30px;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 50%;
+    background-image: linear-gradient(90deg, rgba(243, 170, 243, 0.6), rgba(246, 190, 232, 0.65) 21%, rgba(255, 247, 216, 0.35) 49%, rgba(255, 183, 227, 1));
+}
+
+
+

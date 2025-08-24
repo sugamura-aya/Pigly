@@ -35,7 +35,7 @@
         {{--お名前--}}
         <div class="content">
           <p class="content-name">お名前</p>
-          <input type="name" name="name" class="content-item" placeholder="例:山田花子" value="{{old('name')}}">
+          <input type="name" name="name" class="content-item" placeholder="名前を入力" value="{{old('name')}}">
         </div>
         @error('name')
           <div class="error-message">{{ $message }}</div>
@@ -44,7 +44,7 @@
         {{--メールアドレス--}}
         <div class="content">
           <p class="content-name">メールアドレス</p>
-          <input type="text" name="email" class="content-item" placeholder="例:test@example.com" value="{{old('email')}}">
+          <input type="text" name="email" class="content-item" placeholder="メールアドレスを入力" value="{{old('email')}}">
         </div>
         @error('email')
           <div class="error-message">{{ $message }}</div>
@@ -53,7 +53,7 @@
         {{--パスワード--}}
         <div class="content">
           <p class="content-name">パスワード</p>
-          <input type="password" name="password" class="content-item" placeholder="例:hvydgjojfg790k">
+          <input type="password" name="password" class="content-item" placeholder="パスワードを入力">
         </div>
         @error('password')
           <div class="error-message">{{ $message }}</div>
