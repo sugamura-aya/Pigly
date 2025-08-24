@@ -6,10 +6,10 @@ PiGLy（体重管理アプリ）
    `git clone git@github.com:sugamura-aya/Pigly.git`
 2. Dockerイメージをビルド  
    `docker-compose up -d --build`
-3. PHPコンテナにログイン  
-   `docker-compose exec php bash`
-4. ファイル権限変更  
+3. ファイル権限変更  
    `sudo chown -R $USER:$USER .`
+4. PHPコンテナにログイン  
+   `docker-compose exec php bash`
 5. パッケージインストール  
    `composer install`
 6. .env.exampleを.envにコピーして、以下の内容に変更  
