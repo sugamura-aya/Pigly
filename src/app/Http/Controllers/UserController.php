@@ -29,7 +29,10 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
             'is_active' => false, //仮登録（is_active=false）
         ]);
-        session(['user_id' => $user->id]);
+
+        // 登録と同時にログイン
+        Auth::login($user);
+
         return redirect()->route('register.step2');
     }
 
@@ -42,7 +45,8 @@ class UserController extends Controller
 
     //➁初回目標体重登録（登録処理）
     public function registerStep2(RegisterStep2Request $request) {
-        $user = User::find(session('user_id'));
+
+        $user = Auth::user(); // ログイン済みユーザーを取得
 
         // weight_logs テーブルに初回体重を登録
         WeightLog::create([
@@ -58,8 +62,6 @@ class UserController extends Controller
         ]);
 
         $user->update(['is_active' => true]); //仮登録フラグ is_active を true に変更
-
-        Auth::login($user);
 
         return redirect()->route('weight_logs.index');
     }

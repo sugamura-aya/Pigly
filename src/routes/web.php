@@ -37,7 +37,7 @@ Route::post('/register/step2', [UserController::class, 'registerStep2'])
 
 // 体重管理画面関連
 // 認証済みユーザーのみアクセスできるグループ
-Route::middleware('auth')->group(function () {
+Route::middleware('redirect.if.not.registered')->group(function () {
 
     //➃管理画面（表示）
     Route::get('/weight_logs', [WeightController::class, 'index'])
