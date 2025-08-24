@@ -30,10 +30,11 @@ PiGLy（体重管理アプリ）
 
 ## 使用技術・実行環境
 このアプリケーションは Laravel と Docker を用いて構築しています。
-- Laravel 8.83.29（composer.json 参照）
+- Laravel 8.83.8（composer.json 参照）
 - PHP 8.1.32（Docker）
 - MySQL 8.0.26（Docker）
-- Docker / Docker Compose
+- Docker 27.5.1
+- Docker Compose v2.32.4
 
 ※より詳細な環境情報は composer.json および docker-compose.yml をご参照ください。
 
