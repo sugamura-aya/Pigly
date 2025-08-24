@@ -10,22 +10,22 @@ PiGLy（体重管理アプリ）
    `docker-compose exec php bash`
 4. ファイル権限変更
    `sudo chown -R aya:aya .`
-5. パッケージインストール  
+6. パッケージインストール  
    `composer install`
-6. .env.exampleを.envにコピーして、以下の内容に変更  
+7. .env.exampleを.envにコピーして、以下の内容に変更  
    ```env
    DB_HOST=mysql  
    DB_DATABASE=laravel_db  
    DB_USERNAME=laravel_user  
    DB_PASSWORD=laravel_pass
-7. docker-compose.yml ファイル内の php: に以下を追記
+8. docker-compose.yml ファイル内の php: に以下を追記
    ```yaml
    user: "1000:1000"
-8. アプリキーの生成  
+9. アプリキーの生成  
    `php artisan key:generate`
-9. マイグレーション実行  
+10. マイグレーション実行  
    `php artisan migrate`
-10. ダミーデータ投入（ファクトリ使用）  
+11. ダミーデータ投入（ファクトリ使用）  
     `php artisan db:seed`
 
 ## 使用技術・実行環境
