@@ -49,7 +49,7 @@ PiGLy（体重管理アプリ）
 - 体重詳細 : /weight_logs/{:weightLogId}
 - 体重更新 : /weight_logs/{:weightLogId}/update
 - 体重削除 : /weight_logs/{:weightLogId}/delete
-- 目標設定 : /wight_logs/goal_setting
+- 目標設定 : /weight_logs/goal_setting
 - 会員登録 : /register/step1
 - 初期目標体重登録 : /register/step2
 - ログイン : /login
